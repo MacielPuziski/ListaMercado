@@ -3,10 +3,10 @@ import { View, Text , StyleSheet, TouchableOpacity} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import * as Animatable from 'react-native-animatable';
 
-export default function TaskList({ data, handleDelete }){
+export default function ItemsList({ data, handleDelete }){
     return(
         <Animatable.View 
-        style={styles.container}
+        style={styles.containerItems}
         animation="bounceIn"
         useNativeDriver>
             <TouchableOpacity onPress={ () => handleDelete(data)}>
@@ -14,19 +14,20 @@ export default function TaskList({ data, handleDelete }){
             </TouchableOpacity> 
          
             <View>
-              <Text style={styles.task}> {data.task} </Text>
+              <Text style={styles.items}> {data.item} </Text>
             </View>
         </Animatable.View>     
     )
 }
 
 const styles = StyleSheet.create({
-    container:{
+    containerItems:{
         flex:1,
         margin: 8,
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#FFF',
+        borderRadius: 10,
         padding: 7,
         elevation: 7,
         elevation: 1.5,
@@ -37,7 +38,7 @@ const styles = StyleSheet.create({
             height: 3,
         }
     },
-    task:{
+    items:{
         color: '#121212',
         fontSize: 20,
         paddingLeft: 8,
